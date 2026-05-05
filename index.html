@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+ <body>
+
+    <h1>Gestión de Inventario</h1>
+
+    <section class="formulario">
+        <input type="text" id="producto" placeholder="Nombre del producto">
+        <input type="number" id="cantidad" placeholder="Cantidad">
+        <input type="number" id="precio" placeholder="Precio">
+        <button id="agregar">Agregar</button>
+    </section>
+
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaInventario">
+                <!-- JS insertará datos aquí -->
+            </tbody>
+        </table>
+    </section>
+
+
+    <script src="./src/js/main.js"></script>
+</body>
+</html>
