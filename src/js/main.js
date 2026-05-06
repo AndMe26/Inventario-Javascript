@@ -29,9 +29,9 @@ while (opcion !== "5") {
             } else { for(let i = 0; i < inventario.length; i++){                         // for(incio: ej: x=5;Condicion: x<(variable o numero fijo);paso(step))
                         let producto = inventario[i];
 
-                        alert("Nombre: " + inventario[i].nombre + "\n" +
-                              "Precio: " +  inventario[i].precio + "\n" +
-                              "Cantidad: " +  inventario[i].cantidad 
+                        alert("Nombre: " + producto.nombre + "\n" +
+                              "Precio: " +  producto.precio + "\n" +
+                              "Cantidad: " +  producto.cantidad 
                         );
             }
                
