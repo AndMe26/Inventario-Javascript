@@ -1,44 +1,58 @@
-const leer = require("readline");  // Readline: permite leer lo que el usuario escribe y mostrar preguntas en consola 
+let inventario = [];
+let opcion = "";
 
-const entradaSalida = leer.createInterface({       //entradaSalidad: es el controlador es el objeto que se va a usar para preguntar cosas al usuario
-    input: process.stdin,                          // createInterface: se configura como se comunica el programa
-    output: process.stdout                         // input: process.stdin > lo que el usuario escribe
-});                                                // output: process.stdout > lo que el programa muestra 
+while (opcion !== "5") {
+    opcion = prompt(
+        "== Menu == \n" +
+        "1. Agregar producto \n" +
+        "2. Mostrar inventario\n" +
+        "3. Actualizar producto \n" +
+        "4. Eliminar producto \n" +
+        "5. Salir"
+    );
 
-function mostrarMenu() {
+    switch (opcion) {
+        case "1":
+            let nombreProducto = prompt("Por favor escribe el nombre del producto:")
+            let precioProducto = parseFloat(prompt("Por favor escribe el precio del producto:"))   // ParseFloat: convierte a número decimal
+            let cantidadProducto = parseInt(prompt("Por favor escribe la cantidad del producto:"))  // ParseInt: convierte a número entero (sin decimales)
+            if (isNaN(precioProducto) || isNaN(cantidadProducto)) {                                 // isNaN: Le pregunta a javascript esto que tengo No es un numero y responde con true o false
+                alert("El precio y la cantidad deben ser numeros")
+            } else {
+                inventario.push({ nombre: nombreProducto, precio: precioProducto, cantidad: cantidadProducto });
+                alert("se ha agregado el producto Correctamente")
+            }
+            break;
+        case "2":
+            if (inventario.length === 0) {                                               // if (condicion) : "si el inventario esta vacio "                                                   
+                alert("El inventario esta vacio")                                        // .length : es una propiedad que indica la cantidad de elementos presentes.
+            } else { for(let i = 0; i < inventario.length; i++){                         // for(incio: ej: x=5;Condicion: x<(variable o numero fijo);paso(step))
+                        let producto = inventario[i];
 
-    console.log("\n-----Menu-----")
-    console.log("1. Agregar Producto")
-    console.log("2. Mostrar inventario")
-    console.log("3. Buscar producto")
-    console.log("4. Salir")
+                        alert("Nombre: " + inventario[i].nombre + "\n" +
+                              "Precio: " +  inventario[i].precio + "\n" +
+                              "Cantidad: " +  inventario[i].cantidad 
+                        );
+            }
+               
+            }
 
-    entradaSalida.question("Elige una opcion:", function (opcion) {              //entradaSalida.question: Muestra la pregunta al usuario,
-        switch (opcion) {                                                        //espera que escriba algo, guarda lo que escribe en opcion, ejecuta la funcion despues  
+            break;
+        case "3":
 
-            case "1":
-                console.log("Elegiste: Agregar producto");
-                break;
+            break;
+        case "4":
 
-            case "2":
-                console.log("Elegiste: Mostrar inventario");
-                break;
+            break;
+        case "5":
+            alert("Cerrando el menu...")
+            break;
 
-            case "3":
-                console.log("Elegiste: Buscar producto");
-                break;
+        default:
+            alert("Opcion invalida")
 
-            case "4":
-                console.log("Saliendo...");
-                entradaSalida.close();
-                return;
+    }
 
-            default:
-                console.log("Opción inválida");
-        }
 
-        
-        mostrarMenu();                        
-    });                                                                    
-    
-}
+
+} 
