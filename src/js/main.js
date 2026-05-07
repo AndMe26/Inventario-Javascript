@@ -39,9 +39,37 @@ while (opcion !== "5") {
 
             break;
         case "3":
+            let nombreActualizar = prompt("Por favor escribe el producto que deseas actualizar")
+            let producto = inventario.find(producto => producto.nombre === nombreActualizar);        //Recorre el arreglo y devuelve el primer elemento que cumpla la condición 
+
+            if(producto) {
+                let nuevoPrecio = parseFloat(prompt("Por favor ingresa el nuevo precio"));
+                let nuevaCantidad =  parseInt(prompt("Por favor ingresa la nueva cantidad"));
+
+                producto.precio = nuevoPrecio;
+                producto.cantidad = nuevaCantidad;
+
+                alert("Se ha actualizado correctamente");
+
+            } else {
+
+                alert("producto no encontrado");
+            }
 
             break;
         case "4":
+            let nombreEliminar = prompt("Por favor escribe el producto que deseas Eliminar")
+            let indice = inventario.findIndex(producto => producto.nombre === nombreEliminar)
+
+            if (indice !== -1){
+
+                inventario.splice(indice,1)
+                alert("producto eliminado exitosamente")
+
+            } else {
+
+                alert("producto no encontrado")
+            }
 
             break;
         case "5":
